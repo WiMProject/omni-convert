@@ -1,0 +1,7 @@
+{
+  "name": "OmniConvert AI",
+  "description": "A powerful universal document converter powered by Gemini AI. Convert images, PDFs, and text documents into various formats like Markdown, JSON, CSV, and structured Text with high-accuracy OCR and formatting logic.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
