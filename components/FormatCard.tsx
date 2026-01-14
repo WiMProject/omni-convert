@@ -14,28 +14,36 @@ const FormatCard: React.FC<FormatCardProps> = ({ format, isSelected, onSelect, i
   return (
     <button
       onClick={() => onSelect(format)}
-      className={`flex flex-col items-center justify-center p-4 rounded-2xl border transition-all duration-300 relative group ${
+      className={`flex flex-col items-center justify-center p-5 rounded-[1.5rem] border transition-all duration-500 relative group overflow-hidden ${
         isSelected
-          ? 'border-blue-500 bg-blue-50/50 ring-4 ring-blue-500/5 shadow-lg scale-100 z-10'
-          : 'border-slate-200 bg-white hover:border-blue-300 hover:shadow-xl hover:-translate-y-1'
+          ? 'border-blue-500 bg-blue-600 shadow-[0_20px_40px_-15px_rgba(37,99,235,0.4)] scale-[1.02] z-10'
+          : 'border-white bg-white/40 hover:border-blue-200 hover:bg-white/80 hover:-translate-y-1 hover:shadow-2xl'
       }`}
     >
+      {/* Background decoration for selected state */}
       {isSelected && (
-        <div className="absolute top-2 right-2 w-4 h-4 bg-blue-600 rounded-full flex items-center justify-center text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-2.5 w-2.5" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-          </svg>
-        </div>
+        <div className="absolute -right-4 -bottom-4 w-16 h-16 bg-white/10 rounded-full blur-2xl" />
       )}
-      <div className={`mb-3 p-3 rounded-xl transition-colors duration-300 ${
+      
+      <div className={`mb-3 p-3.5 rounded-2xl transition-all duration-500 ${
         isSelected 
-          ? 'bg-blue-600 text-white shadow-lg shadow-blue-200' 
-          : 'bg-slate-50 text-slate-400 group-hover:bg-blue-100 group-hover:text-blue-600'
+          ? 'bg-white text-blue-600 rotate-[360deg]' 
+          : 'bg-slate-100/50 text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-500'
       }`}>
         {icon}
       </div>
-      <span className={`text-[10px] font-black uppercase tracking-widest ${isSelected ? 'text-blue-900' : 'text-slate-900'}`}>{format}</span>
-      <p className={`text-[9px] mt-1 font-medium text-center ${isSelected ? 'text-blue-600' : 'text-slate-400'}`}>{description}</p>
+      
+      <span className={`text-[11px] font-black uppercase tracking-[0.15em] ${isSelected ? 'text-white' : 'text-slate-800'}`}>
+        {format}
+      </span>
+      
+      <p className={`text-[9px] mt-1.5 font-bold tracking-tight ${isSelected ? 'text-blue-100' : 'text-slate-400'}`}>
+        {description}
+      </p>
+
+      {isSelected && (
+        <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-white rounded-full animate-ping" />
+      )}
     </button>
   );
 };
